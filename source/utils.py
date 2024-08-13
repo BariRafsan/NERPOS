@@ -15,10 +15,9 @@ def load_latest_model(model_dir):
     print(f"Loading model from: {model_dir}")
     model_files = [
         f for f in os.listdir(model_dir) if f.endswith(".keras")
-    ]  # get all the model files with .keras extension
+    ]  
 
-    model_files.sort(reverse=True)  # Sort in descending order so the latest is first
-
+    model_files.sort(reverse=True)  
     if not model_files:
         raise FileNotFoundError("No model files found in the specified directory.")
 

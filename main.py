@@ -1,8 +1,6 @@
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI
 
-# Load the tokenizer from a file (replace 'tokenizer.pkl' with your actual file)
-
 import config
 from source.data_preprocessing import (
     load_data,
@@ -13,6 +11,7 @@ from source.data_preprocessing import (
 from source.utils import train_test_split_func
 from source.train import model_training
 from source.evaluate import model_eval
+from icecream import ic
 
 app = FastAPI()
 
@@ -76,12 +75,13 @@ async def model_evaluate():
         config.processed_data_dir
     )
     _X_train, X_test, _y_pos_train, y_pos_test, _y_ner_train, y_ner_test = (
-        await train_test_split_func(X, y_pos, y_ner)
+        train_test_split_func(X, y_pos, y_ner)
     )
 
     results, pos_report, ner_report = model_eval(
         X_test, y_pos_test, y_ner_test, pos_encoder, ner_encoder
     )
+    ic(results, pos_report, ner_report)
     return {
         "message": {
             "results": results,

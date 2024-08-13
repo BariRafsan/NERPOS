@@ -67,6 +67,7 @@ def save_processed_data(X, y_pos, y_ner, tokenizer, pos_encoder, ner_encoder, sa
         pickle.dump(pos_encoder, f)
     with open(os.path.join(save_dir, "ner_encoder.pkl"), "wb") as f:
         pickle.dump(ner_encoder, f)
+    return save_dir
 
 
 def load_processed_data(save_dir):

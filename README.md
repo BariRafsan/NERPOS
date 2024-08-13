@@ -47,11 +47,16 @@ This repository contains an end-to-end machine learning pipeline developed for N
    python -m venv venv
    source venv/bin/activate 
    ```
-
+   
 3. Install the required dependencies:
    ```bash
    pip install -r requirements.txt
    ```
+4. To run the fastapi script:
+   ```bash
+   uvicorn main:app --reload 
+   ```
+ 
 
 ## Usage
 

@@ -52,7 +52,9 @@ This repository contains an end-to-end machine learning pipeline developed for N
    ```bash
    pip install -r requirements.txt
    ```
-4. To run the fastapi script:
+4. Add the environment variables according to the .env        template.
+
+5. To run the fastapi script:
    ```bash
    uvicorn main:app --reload 
    ```

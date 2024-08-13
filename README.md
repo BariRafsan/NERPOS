@@ -74,7 +74,7 @@ This will load, clean, tokenize, pad the sequences. The processed data will be s
 
 ### 2. Model Training
 
-To train the model on the preprocessed dataset, use the `/modeltrain` endpoint:
+To train the model on the preprocessed dataset, and save the model to the models dir use the `/modeltrain` endpoint:
 
 ```bash
 curl -X POST "http://127.0.0.1:8000/modeltrain"
@@ -84,7 +84,7 @@ The trained model will be saved in the `models` directory.
 
 ### 3. Model Evaluation
 
-To evaluate the model and get a performance report, send a POST request to the `/evaluate` endpoint:
+To evaluate the latest model from the models dir and get a performance report, send a POST request to the `/evaluate` endpoint:
 
 ```bash
 curl -X POST "http://127.0.0.1:8000/evaluate"

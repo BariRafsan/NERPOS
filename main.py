@@ -45,7 +45,7 @@ async def data_preprocessing_and_save():
 @app.get("/modeltrain")
 async def model_train():
     print(config.processed_data_dir)
-    X, y_pos, y_ner, tokenizer, pos_encoder, ner_encoder = await load_processed_data(
+    X, y_pos, y_ner, tokenizer, pos_encoder, ner_encoder = load_processed_data(
         config.processed_data_dir
     )
     X_train, X_test, y_pos_train, y_pos_test, y_ner_train, y_ner_test = (

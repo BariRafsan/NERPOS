@@ -1,5 +1,8 @@
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI
+
+# Load the tokenizer from a file (replace 'tokenizer.pkl' with your actual file)
+
 import config
 from source.data_preprocessing import (
     load_data,
@@ -47,7 +50,7 @@ async def model_train():
         config.processed_data_dir
     )
     X_train, X_test, y_pos_train, y_pos_test, y_ner_train, y_ner_test = (
-        await train_test_split_func(X, y_pos, y_ner)
+        train_test_split_func(X, y_pos, y_ner)
     )
     result = model_training(
         X_train,
@@ -66,12 +69,10 @@ async def model_train():
     return {"message": "failed"}
 
 
-app.get("/evaluate")
-
-
+@app.get("/evaluate")
 async def model_evaluate():
 
-    X, y_pos, y_ner, _tokenizer, pos_encoder, ner_encoder = await load_processed_data(
+    X, y_pos, y_ner, _tokenizer, pos_encoder, ner_encoder = load_processed_data(
         config.processed_data_dir
     )
     _X_train, X_test, _y_pos_train, y_pos_test, _y_ner_train, y_ner_test = (

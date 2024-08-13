@@ -98,9 +98,9 @@ The model is a neural network designed to handle both NER and POS tagging tasks.
 
 ## API Endpoints
 
-- **POST /preprocess**: Preprocess the dataset.
-- **POST /modeltrain**: Train the model with the preprocessed dataset.
-- **POST /evaluate**: Evaluate the model and get performance metrics.
+- **GET /preprocess**: Preprocess the dataset.
+- **GET /modeltrain**: Train the model with the preprocessed dataset.
+- **GET /evaluate**: Evaluate the model and get performance metrics.
 
 ## Future Work
 

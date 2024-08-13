@@ -13,11 +13,9 @@ def train_test_split_func(X, y_pos, y_ner):
 
 def load_latest_model(model_dir):
     print(f"Loading model from: {model_dir}")
-    model_files = [
-        f for f in os.listdir(model_dir) if f.endswith(".keras")
-    ]  
+    model_files = [f for f in os.listdir(model_dir) if f.endswith(".keras")]
 
-    model_files.sort(reverse=True)  
+    model_files.sort(reverse=True)
     if not model_files:
         raise FileNotFoundError("No model files found in the specified directory.")
 

@@ -67,7 +67,7 @@ This repository contains an end-to-end machine learning pipeline developed for N
 To preprocess the dataset, send a POST request to the `/preprocess` endpoint:
 
 ```bash
-curl -X POST "http://127.0.0.1:8000/preprocess"
+curl -X GET "http://127.0.0.1:8000/preprocess"
 ```
 
 This will load, clean, tokenize, pad the sequences. The processed data will be saved in the `data/processed` directory.
@@ -77,7 +77,7 @@ This will load, clean, tokenize, pad the sequences. The processed data will be s
 To train the model on the preprocessed dataset, and save the model to the models dir use the `/modeltrain` endpoint:
 
 ```bash
-curl -X POST "http://127.0.0.1:8000/modeltrain"
+curl -X GET "http://127.0.0.1:8000/modeltrain"
 ```
 
 The trained model will be saved in the `models` directory.
@@ -87,7 +87,7 @@ The trained model will be saved in the `models` directory.
 To evaluate the latest model from the models dir and get a performance report, send a POST request to the `/evaluate` endpoint:
 
 ```bash
-curl -X POST "http://127.0.0.1:8000/evaluate"
+curl -X GET "http://127.0.0.1:8000/evaluate"
 ```
 
 This will return a JSON object with metrics such as accuracy, precision, recall, and F1 score.
